@@ -13,6 +13,7 @@
       <change afterPath="$PROJECT_DIR$/AICentral.DistributedRateLimiterTestWeb/AICentral.DistributedRateLimiterTestWeb.csproj" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/AICentral.DistributedRateLimiterTestWeb/Program.cs" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/AICentral.DistributedRateLimiterTestWeb/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/build-aicentral-azure-distributed-rate-limiter.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/build-aicentral-azure-distributed-rate-limiter.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AICentral.DistributedTokenLimits/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AICentral.DistributedTokenLimits/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AICentral.DistributedTokenLimits/AICentral.DistributedTokenLimits.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/AICentral.DistributedRateLimiter/AICentral.DistributedRateLimiter.csproj" afterDir="false" />
@@ -138,7 +139,7 @@
       <option name="presentableId" value="Default" />
       <updated>1706504096968</updated>
       <workItem from="1706504097398" duration="4948000" />
-      <workItem from="1706524425140" duration="10709000" />
+      <workItem from="1706524425140" duration="11653000" />
     </task>
     <servers />
   </component>

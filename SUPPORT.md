@@ -1,10 +1,7 @@
-# Support
+# Reporting Security Issues
 
-## How to file issues and get help
+The team and community take security bugs seriously. We appreciate your efforts to responsibly disclose your findings, and will make every effort to acknowledge your contributions.
 
-We use [GitHub issues](https://github.com/graemefoster/AICentral.DistributedRateLimiter/issues) as an issue tracker for the repository. Firstly, please search in open issues and try to make sure your problem doesn't exist. If there is an issue, add your comments to this issue.
-If there are no issues yet, please open a new one.
+To report a security issue, please use the GitHub Security Advisory ["Report a Vulnerability"](https://github.com/graemefoster/AICentral.DistributedRateLimiter/security/advisories/new) tab.
 
-## Support Policy
-
-Support for AICentral.DistributedRateLimiter is limited to the resources listed above.
+The team will send a response indicating the next steps in handling your report. After the initial reply to your report, the security team will keep you informed of the progress towards a fix and full announcement, and may ask for additional information or guidance.

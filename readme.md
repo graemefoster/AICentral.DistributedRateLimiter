@@ -4,6 +4,27 @@ A Distributed Rate Limiter for use with (AICentral)[www.github.com/microsoft/aic
 
 ## Configuration
 
+```shell
+
+dotnet add package AICentral.DistributedRateLimiter
+
+```
+
+```shell
+
+```
+
+```csharp
+
+builder.Services.AddAICentral(
+    builder.Configuration,
+    additionalComponentAssemblies:
+    [
+        typeof(DistributedRateLimiter).Assembly,
+    ]);
+
+```
+
 ```json
 
 {

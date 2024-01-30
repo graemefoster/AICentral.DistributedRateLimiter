@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\AICentral.DistributedTokenLimits\AICentral.DistributedTokenLimits.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="AICentral" Version="0.10.0-pullrequest0070-0005" />
+    </ItemGroup>
+
+</Project>

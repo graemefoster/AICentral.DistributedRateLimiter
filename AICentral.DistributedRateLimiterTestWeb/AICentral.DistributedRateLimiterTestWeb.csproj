@@ -4,10 +4,11 @@
         <TargetFramework>net8.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
+        <RootNamespace>AICentral.DistributedTokenLimitsTestWeb</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\AICentral.DistributedTokenLimits\AICentral.DistributedTokenLimits.csproj" />
+      <ProjectReference Include="..\AICentral.DistributedRateLimiter\AICentral.DistributedRateLimiter.csproj" />
     </ItemGroup>
 
     <ItemGroup>

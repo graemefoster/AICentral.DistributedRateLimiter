@@ -10,24 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e3ad194-88eb-4480-a328-b37103954067" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/AICentral.DistributedRateLimiterTestWeb/AICentral.DistributedRateLimiterTestWeb.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AICentral.DistributedRateLimiterTestWeb/Program.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AICentral.DistributedRateLimiterTestWeb/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/build-aicentral-azure-distributed-rate-limiter.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/build-aicentral-azure-distributed-rate-limiter.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AICentral.DistributedTokenLimits/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AICentral.DistributedTokenLimits/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AICentral.DistributedTokenLimits/AICentral.DistributedTokenLimits.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/AICentral.DistributedRateLimiter/AICentral.DistributedRateLimiter.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AICentral.DistributedTokenLimits/DistributedRateLimiter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AICentral.DistributedRateLimiter/DistributedRateLimiter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AICentral.DistributedTokenLimits/DistributedRateLimiterConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AICentral.DistributedRateLimiter/DistributedRateLimiterConfig.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AICentral.DistributedTokenLimits/DistributedRateLimiterFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AICentral.DistributedRateLimiter/DistributedRateLimiterFactory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AICentral.DistributedTokenLimits/LimitType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AICentral.DistributedRateLimiter/LimitType.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AICentral.DistributedTokenLimits/MetricType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AICentral.DistributedRateLimiter/MetricType.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AICentral.DistributedTokenLimitsTestWeb/AICentral.DistributedTokenLimitsTestWeb.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AICentral.DistributedTokenLimitsTestWeb/Program.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AICentral.DistributedTokenLimitsTestWeb/appsettings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SECURITY.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SUPPORT.md" beforeDir="false" afterPath="$PROJECT_DIR$/SUPPORT.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,6 +50,7 @@
     ".NET Launch Settings Profile.AICentral.DistributedTokenLimitsTestWeb: http.executor": "Debug",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "XThreadsFramesViewSplitterKey": "0.5004859",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "node.js.detected.package.eslint": "true",
@@ -140,7 +124,7 @@
       <option name="presentableId" value="Default" />
       <updated>1706504096968</updated>
       <workItem from="1706504097398" duration="4948000" />
-      <workItem from="1706524425140" duration="12483000" />
+      <workItem from="1706524425140" duration="13133000" />
     </task>
     <servers />
   </component>

@@ -8,7 +8,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="AICentral.Core" Version="0.10.0-pullrequest0070-0005" />
+      <PackageReference Include="AICentral.Core" Version="0.11.0-pullrequest0072-0010" />
       <PackageReference Include="StackExchange.Redis" Version="2.7.17" />
     </ItemGroup>
 

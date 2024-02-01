@@ -12,7 +12,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="AICentral" Version="0.11.0-pullrequest0072-0010" />
+      <PackageReference Include="AICentral" Version="0.12.0" />
     </ItemGroup>
 
 </Project>

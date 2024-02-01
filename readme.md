@@ -10,10 +10,6 @@ dotnet add package AICentral.DistributedRateLimiter
 
 ```
 
-```shell
-
-```
-
 ```csharp
 
 builder.Services.AddAICentral(

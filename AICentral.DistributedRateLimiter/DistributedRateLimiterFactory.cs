@@ -6,7 +6,7 @@ using StackExchange.Redis;
 
 namespace AICentral.DistributedTokenLimits;
 
-public class DistributedRateLimiterFactory : IAICentralGenericStepFactory
+public class DistributedRateLimiterFactory : IPipelineStepFactory
 {
     private readonly string _redisConfiguration;
     private readonly TimeSpan _window;
@@ -32,7 +32,7 @@ public class DistributedRateLimiterFactory : IAICentralGenericStepFactory
         _limitType = limitType;
     }
 
-    IAICentralPipelineStep IAICentralPipelineStepFactory<IAICentralPipelineStep>.Build(IServiceProvider serviceProvider)
+    IPipelineStep IPipelineStepFactory.Build(IServiceProvider serviceProvider)
     {
         return serviceProvider.GetRequiredKeyedService<DistributedRateLimiter>(_id);
     }
@@ -52,7 +52,7 @@ public class DistributedRateLimiterFactory : IAICentralGenericStepFactory
         ));
     }
 
-    public static IAICentralGenericStepFactory BuildFromConfig(ILogger logger, AICentralTypeAndNameConfig config)
+    public static IPipelineStepFactory BuildFromConfig(ILogger logger, TypeAndNameConfig config)
     {
         var typedConfig = config.TypedProperties<DistributedRateLimiterConfig>();
         return new DistributedRateLimiterFactory(

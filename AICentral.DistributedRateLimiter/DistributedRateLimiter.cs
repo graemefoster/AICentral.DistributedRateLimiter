@@ -5,7 +5,7 @@ using StackExchange.Redis;
 
 namespace AICentral.DistributedTokenLimits;
 
-public class DistributedRateLimiter : IAICentralPipelineStep
+public class DistributedRateLimiter : IPipelineStep
 {
     private readonly IDatabase _redisAsync;
     private readonly string _stepName;
@@ -17,9 +17,9 @@ public class DistributedRateLimiter : IAICentralPipelineStep
 
     public DistributedRateLimiter(
         string stepName,
-        IRedisAsync redisAsync, 
-        TimeSpan window, 
-        int limitPerInterval, 
+        IRedisAsync redisAsync,
+        TimeSpan window,
+        int limitPerInterval,
         LimitType limitType,
         MetricType metricType)
     {
@@ -32,9 +32,17 @@ public class DistributedRateLimiter : IAICentralPipelineStep
     }
 
     public async Task<AICentralResponse> Handle(HttpContext context, IncomingCallDetails aiCallInformation,
-        IAICentralPipelineExecutor pipeline,
+        NextPipelineStep next,
         CancellationToken cancellationToken)
     {
+        if (context.Response.SupportsTrailers())
+        {
+            context.Response.DeclareTrailer(
+                _metricType == MetricType.Tokens
+                    ? "x-aicentral-remaining-tokens"
+                    : "x-aicentral-remaining-requests");
+        }
+
         //which interval should we be in? And when should it end?
         var elapsedMinutesSinceMin = DateTime.UtcNow - BaseTime;
         var intervalNumber = Math.Floor(elapsedMinutesSinceMin.TotalSeconds / _window.TotalSeconds);
@@ -61,7 +69,7 @@ public class DistributedRateLimiter : IAICentralPipelineStep
                 DownstreamUsageInformation.Empty(context, aiCallInformation, null, string.Empty), resultHandler);
         }
 
-        var response = await pipeline.Next(context, aiCallInformation, cancellationToken);
+        var response = await next(context, aiCallInformation, cancellationToken);
 
         if (response.DownstreamUsageInformation.Success.GetValueOrDefault())
         {
@@ -70,7 +78,8 @@ public class DistributedRateLimiter : IAICentralPipelineStep
             {
                 var consumed = _metricType == MetricType.Requests
                     ? thisNodeLimitConsumed.GetValueOrDefault() + 1
-                    : thisNodeLimitConsumed.GetValueOrDefault() + response.DownstreamUsageInformation.TotalTokens!.Value;
+                    : thisNodeLimitConsumed.GetValueOrDefault() +
+                      response.DownstreamUsageInformation.TotalTokens!.Value;
 
                 await _redisAsync.HashSetAsync(
                     key,
@@ -99,7 +108,7 @@ public class DistributedRateLimiter : IAICentralPipelineStep
 
     /// <summary>
     /// We can't return remaining token headers yet as streamed responses haven't been calculated (at this point).
-    /// Instead we return a trailing header directly in the response (see above method)
+    /// Instead we will return a trailing header directly in the response (see above method).
     /// </summary>
     /// <param name="context"></param>
     /// <param name="rawResponse"></param>

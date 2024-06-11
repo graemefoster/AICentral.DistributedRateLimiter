@@ -42,6 +42,7 @@ public class DistributedRateLimiterFactory : IPipelineStepFactory
     public void RegisterServices(IServiceCollection services)
     {
         services.AddKeyedSingleton(_id, ConnectionMultiplexer.Connect(_redisConfiguration));
+        
         services.AddKeyedTransient<DistributedRateLimiter>(_id, (sp, key) => new DistributedRateLimiter(
             _stepName,
             sp.GetRequiredKeyedService<ConnectionMultiplexer>(_id).GetDatabase(),

@@ -53,8 +53,9 @@ public class DistributedRateLimiter : IPipelineStep
                 ? context.User.Identity?.Name ?? "all"
                 : string.Empty;
 
-        var key = new RedisKey(
-            $"{aiCallInformation.PipelineName}-{_stepName}-{_metricType}-{_limitType}-{_window.TotalSeconds}-{intervalNumber}-{keyPartFromLimitType}");
+        var keyName =
+            $"{aiCallInformation.PipelineName}-{_stepName}-{_metricType}-{_limitType}-{_window.TotalSeconds}-{intervalNumber}-{keyPartFromLimitType}";
+        var key = new RedisKey(keyName);
 
         var thisNodeLimitConsumed = (int?)_redisAsync.HashGet(key, Environment.MachineName);
         var keyValue = await _redisAsync.HashValuesAsync(key);
@@ -66,7 +67,13 @@ public class DistributedRateLimiter : IPipelineStep
             context.Response.Headers.RetryAfter = new StringValues(intervalEnd.ToString("R"));
 
             return new AICentralResponse(
-                DownstreamUsageInformation.Empty(context, aiCallInformation, null, string.Empty), resultHandler);
+                DownstreamUsageInformation.Empty(
+                    context,
+                    aiCallInformation,
+                    null,
+                    string.Empty,
+                    null
+                ), resultHandler);
         }
 
         var response = await next(context, aiCallInformation, cancellationToken);
@@ -81,12 +88,11 @@ public class DistributedRateLimiter : IPipelineStep
                     : thisNodeLimitConsumed.GetValueOrDefault() +
                       response.DownstreamUsageInformation.TotalTokens!.Value;
 
-                await _redisAsync.HashSetAsync(
+                var success = await _redisAsync.HashSetAsync(
                     key,
                     new RedisValue(Environment.MachineName),
-                    _metricType == MetricType.Requests
-                        ? 1
-                        : response.DownstreamUsageInformation.TotalTokens);
+                    consumed
+                );
 
                 //Can't set the expiry directly on the cache, but let's update it to when it should expire. 
                 //Hopefully this doesn't have too big an impact on performance...
